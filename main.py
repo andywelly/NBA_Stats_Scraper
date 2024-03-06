@@ -1,44 +1,29 @@
 from bs4 import BeautifulSoup
 import requests
 import sys
-
-
-
-POINT_MARKETS = [5, 10, 15, 20, 25, 30, 35]
-
-
-def point_odds(point_array):
-    for market in POINT_MARKETS:
-        print("Market: " + str(market) + "+ Points")
-        winning_odds = check_market_hit(point_array, market)
-        print("Minimum Winning Odds" + str(winning_odds) + "\n")
-    
-        
-            
-def check_market_hit(stat_array, market):
-    count = 0;
-    for stat in stat_array:
-        if (int(stat) >= market):
-            count += 1
-    hit_rate = (count / 5)
-    odds = 1 / hit_rate
-    return odds
+import odds
 
 
 print("\nEnter player statistic url from basketball reference")
 print("Should be in the form: https://www.basketball-reference.com/players/...\n")
 
 
+
 user_url = input("Enter URL: ")
 
+
+# Validates user input to be in proper form
 if (user_url.startswith("https://www.basketball-reference.com/players")):
     print("\nRetrieving statistics for:");
 else:
     sys.exit("Invalid URL\nShould start with: https://www.basketball-reference.com/players")
 
 
+# Using BeautifulSoup to scrape html file from basketball reference
 page = requests.get(user_url)
 soup = BeautifulSoup(page.text, 'lxml')
+
+
 
 name = soup.find('h1').text;
 print(name)
@@ -65,7 +50,7 @@ for game in games:
     turnovers.append(stats[21].text)
     threePM.append(stats[9].text)
 
-point_odds(points)
+odds.point_odds(points)
 
 
 
