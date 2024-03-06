@@ -3,12 +3,19 @@ import requests
 import sys
 import odds
 
+# Arrays to store player stat vales
+points = []
+assists = []
+rebounds = []
+steals = []
+blocks = []
+turnovers = []
+threePM = []
 
+
+# Request for user input
 print("\nEnter player statistic url from basketball reference")
 print("Should be in the form: https://www.basketball-reference.com/players/...\n")
-
-
-
 user_url = input("Enter URL: ")
 
 
@@ -32,13 +39,6 @@ table = soup.find('table', class_="stats_table")
 tbody = table.find('tbody')
 games = tbody.find_all('tr')
 
-points = []
-assists = []
-rebounds = []
-steals = []
-blocks = []
-turnovers = []
-threePM = []
 
 for game in games:
     stats = game.find_all('td')
