@@ -1,12 +1,16 @@
 import markets
 
-def point_odds(point_array):
-    for market in markets.POINT_MARKETS:
-        print("Market: " + str(market) + "+ Points")
-        winning_odds = check_market_hit(point_array, market)
+suggested = []
+
+def check_odds(array, markets, stat):
+    for market in markets:
+        print("Market: " + str(market) + "+ " + stat)
+        winning_odds = check_market_hit(array, market)
         print("Minimum Winning Odds: " + str(winning_odds) + "\n")
+        if (int(winning_odds) >= 1 and int(winning_odds) <= 2):
+            suggested.append(str(market) + "+ " + stat + " min odds: " + str(winning_odds))
     
-        
+
             
 def check_market_hit(stat_array, market):
     count = 0;
@@ -18,4 +22,4 @@ def check_market_hit(stat_array, market):
         odds = 1 / hit_rate
         return odds
     else:
-        return "N/A - no last 5 hits"
+        return 0

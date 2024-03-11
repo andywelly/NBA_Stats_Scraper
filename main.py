@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import sys
+import markets
 import odds
 
 # Arrays to store player stat vales
@@ -21,7 +22,7 @@ user_url = input("Enter URL: ")
 
 # Validates user input to be in proper form
 if (user_url.startswith("https://www.basketball-reference.com/players")):
-    print("\nRetrieving statistics for:");
+    print("\nRetrieving statistics");
 else:
     sys.exit("Invalid URL\nShould start with: https://www.basketball-reference.com/players")
 
@@ -31,13 +32,14 @@ page = requests.get(user_url)
 soup = BeautifulSoup(page.text, 'lxml')
 
 
-
-name = soup.find('h1').text;
-print(name)
-
 table = soup.find('table', class_="stats_table")
 tbody = table.find('tbody')
 games = tbody.find_all('tr')
+
+
+name = soup.find('h1').text;
+team = games[0].find_all('td')[0].find('a').text
+print(name + team + "\n")
 
 
 for game in games:
@@ -50,7 +52,13 @@ for game in games:
     turnovers.append(stats[21].text)
     threePM.append(stats[9].text)
 
-odds.point_odds(points)
 
+#odds.check_odds(points, markets.POINT_MARKETS, "points")
+#odds.check_odds(assists, markets.ASSIST_MARKETS, "assists")
+
+print(points)
+print(assists)
+print(rebounds)
+print(threePM)
 
 
