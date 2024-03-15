@@ -26,6 +26,8 @@ if (user_url.startswith("https://www.basketball-reference.com/players")):
 else:
     sys.exit("Invalid URL\nShould start with: https://www.basketball-reference.com/players")
 
+market_request = input("Enter Market: ")
+
 
 # Using BeautifulSoup to scrape html file from basketball reference
 page = requests.get(user_url)
