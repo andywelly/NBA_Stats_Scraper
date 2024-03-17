@@ -28,6 +28,8 @@ else:
 
 market_request = input("Enter Market: ")
 
+print("Retrieveing " + market_request)
+
 
 # Using BeautifulSoup to scrape html file from basketball reference
 page = requests.get(user_url)
