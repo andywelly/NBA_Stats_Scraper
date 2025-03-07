@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Stats Results</title>
+</head>
+<body>
+    <h1>Player Statistics Results</h1>
+    <h2>{{ name }} - {{ team }}</h2>
+    <h3>Market Requested: {{ market_request }}</h3>
+    <h3>Points:</h3>
+    <ul>
+        {% for point in points %}
+        <li>{{ point }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Assists:</h3>
+    <ul>
+        {% for assist in assists %}
+        <li>{{ assist }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Rebounds:</h3>
+    <ul>
+        {% for rebound in rebounds %}
+        <li>{{ rebound }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Steals:</h3>
+    <ul>
+        {% for steal in steals %}
+        <li>{{ steal }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Blocks:</h3>
+    <ul>
+        {% for block in blocks %}
+        <li>{{ block }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Turnovers:</h3>
+    <ul>
+        {% for turnover in turnovers %}
+        <li>{{ turnover }}</li>
+        {% endfor %}
+    </ul>
+    <h3>3PM:</h3>
+    <ul>
+        {% for three in threePM %}
+        <li>{{ three }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

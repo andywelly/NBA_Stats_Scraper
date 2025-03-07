@@ -22,7 +22,7 @@ user_url = input("Enter URL: ")
 
 # Validates user input to be in proper form
 if (user_url.startswith("https://www.basketball-reference.com/players")):
-    print("\nRetrieving statistics");
+    print("\nRetrieving statistics")
 else:
     sys.exit("Invalid URL\nShould start with: https://www.basketball-reference.com/players")
 
@@ -57,8 +57,6 @@ for game in games:
     threePM.append(stats[9].text)
 
 
-#odds.check_odds(points, markets.POINT_MARKETS, "points")
-#odds.check_odds(assists, markets.ASSIST_MARKETS, "assists")
 
 print(points)
 print(assists)
