@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Stats Results</title>
+    <title>Player Stats</title>
 </head>
 <body>
-    <h1>Player Statistics Results</h1>
+    <h1>Player Statistics</h1>
+    <a href="/">Back to Home</a>
+    <form method="POST">
+        <label for="user_url">Enter Player URL:</label><br>
+        <input type="text" id="user_url" name="user_url" required><br><br>
+        <label for="market_request">Enter Market:</label><br>
+        <input type="text" id="market_request" name="market_request" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if name %}
     <h2>{{ name }} - {{ team }}</h2>
     <h3>Market Requested: {{ market_request }}</h3>
     <h3>Points:</h3>
@@ -51,5 +61,6 @@
         <li>{{ three }}</li>
         {% endfor %}
     </ul>
+    {% endif %}
 </body>
 </html>

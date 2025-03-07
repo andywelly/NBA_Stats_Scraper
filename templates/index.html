@@ -3,16 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Stats Scraper</title>
+    <title>Front Page</title>
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Player Statistics Scraper</h1>
-    <form method="POST">
-        <label for="user_url">Enter Player URL:</label><br>
-        <input type="text" id="user_url" name="user_url" required><br><br>
-        <label for="market_request">Enter Market:</label><br>
-        <input type="text" id="market_request" name="market_request" required><br><br>
-        <button type="submit">Submit</button>
-    </form>
+    <h1 style="text-align: center;">Welcome to the NBA Stats App</h1>
+    <div class="button-container">
+        <a href="/player" class="button">Player Stats</a>
+        <a href="/games" class="button">Games</a>
+    </div>
 </body>
 </html>

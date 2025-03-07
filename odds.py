@@ -13,7 +13,7 @@ def check_odds(array, markets, stat):
 
             
 def check_market_hit(stat_array, market):
-    count = 0;
+    count = 0
     for stat in stat_array:
         if (int(stat) >= market):
             count += 1

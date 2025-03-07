@@ -4,8 +4,14 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
-def index():
+# Front page route
+@app.route("/")
+def front_page():
+    return render_template("index.html")
+
+# Player stats route
+@app.route("/player", methods=["GET", "POST"])
+def player():
     if request.method == "POST":
         user_url = request.form.get("user_url")
         market_request = request.form.get("market_request")
@@ -36,7 +42,7 @@ def index():
             threePM = [game.find_all('td')[9].text.strip() for game in games]
 
             return render_template(
-                "results.html",
+                "player.html",
                 name=name,
                 team=team,
                 points=points,
@@ -52,7 +58,13 @@ def index():
         except Exception as e:
             return f"An error occurred: {str(e)}"
 
-    return render_template("index.html")
+    return render_template("player.html")
+
+# Games route
+@app.route("/games")
+def games():
+    # Add logic for games here (e.g., scrape games data)
+    return render_template("games.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
