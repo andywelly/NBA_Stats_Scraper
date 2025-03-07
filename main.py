@@ -41,7 +41,7 @@ tbody = table.find('tbody')
 games = tbody.find_all('tr')
 
 
-name = soup.find('h1').text;
+name = soup.find('h1').text
 team = games[0].find_all('td')[0].find('a').text
 print(name + team + "\n")
 
