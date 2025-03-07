@@ -1,0 +1,36 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+bin/
+lib/
+include/
+pip-selfcheck.json
+
+# Environment files
+.env
+.flaskenv
+
+# IDE-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Flask secret key
+secret_key
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
