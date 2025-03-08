@@ -6,8 +6,33 @@
     <title>Games</title>
 </head>
 <body>
-    <h1>Games</h1>
-    <p>Logic</p>
+    <h1>NBA Games</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Game URL</th>
+                <th>Team 1</th>
+                <th>Team 1 Code</th>
+                <th>Team 1 Link</th>
+                <th>Team 2</th>
+                <th>Team 2 Code</th>
+                <th>Team 2 Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for game in games_teams %}
+            <tr>
+                <td><a href="{{ game.game_url }}">{{ game.game_url }}</a></td>
+                <td>{{ game.team1 }}</td>
+                <td>{{ game.team1_code }}</td>
+                <td><a href="{{ game.team1_link }}">{{ game.team1_link }}</a></td>
+                <td>{{ game.team2 }}</td>
+                <td>{{ game.team2_code }}</td>
+                <td><a href="{{ game.team2_link }}">{{ game.team2_link }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <a href="/">Back to Home</a>
 </body>
 </html>

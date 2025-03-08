@@ -34,3 +34,4 @@ secret_key
 
 # Windows files
 Thumbs.db
+.vercel
