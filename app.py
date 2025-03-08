@@ -1,42 +1,9 @@
 from flask import Flask, render_template, request
 import requests
 from bs4 import BeautifulSoup
+from teams import team_codes
 
 app = Flask(__name__)
-
-# Team codes dictionary
-team_codes = {
-    "Atlanta Hawks": "ATL",
-    "Boston Celtics": "BOS",
-    "Brooklyn Nets": "BKN",
-    "Charlotte Hornets": "CHA",
-    "Chicago Bulls": "CHI",
-    "Cleveland Cavaliers": "CLE",
-    "Dallas Mavericks": "DAL",
-    "Denver Nuggets": "DEN",
-    "Detroit Pistons": "DET",
-    "Golden State Warriors": "GSW",
-    "Houston Rockets": "HOU",
-    "Indiana Pacers": "IND",
-    "Los Angeles Clippers": "LAC",
-    "Los Angeles Lakers": "LAL",
-    "Memphis Grizzlies": "MEM",
-    "Miami Heat": "MIA",
-    "Milwaukee Bucks": "MIL",
-    "Minnesota Timberwolves": "MIN",
-    "New Orleans Pelicans": "NOP",
-    "New York Knicks": "NYK",
-    "Oklahoma City Thunder": "OKC",
-    "Orlando Magic": "ORL",
-    "Philadelphia 76ers": "PHI",
-    "Phoenix Suns": "PHX",
-    "Portland Trail Blazers": "POR",
-    "Sacramento Kings": "SAC",
-    "San Antonio Spurs": "SAS",
-    "Toronto Raptors": "TOR",
-    "Utah Jazz": "UTA",
-    "Washington Wizards": "WAS",
-}
 
 # Front page route
 @app.route("/")
@@ -55,7 +22,7 @@ def player():
 
         try:
             page = requests.get(user_url)
-            soup = BeautifulSoup(page.text, 'lxml')
+            soup = BeautifulSoup(page.text, 'html.parser')
 
             table = soup.find('table', class_="stats_table")
             if not table:
@@ -157,7 +124,7 @@ def games():
     soup = BeautifulSoup(page.text, "html.parser")
 
     # Find all game links
-    games = soup.find_all("a", class_="gamecard-pregame")
+    games = soup.find_all("a", class_="gamecard-final")
 
     # Extract href attributes
     game_links = []
