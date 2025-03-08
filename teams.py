@@ -1,8 +1,8 @@
 team_codes = {
     "Atlanta Hawks": "ATL",
     "Boston Celtics": "BOS",
-    "Brooklyn Nets": "BKN",
-    "Charlotte Hornets": "CHA",
+    "Brooklyn Nets": "BRK",
+    "Charlotte Hornets": "CH0",
     "Chicago Bulls": "CHI",
     "Cleveland Cavaliers": "CLE",
     "Dallas Mavericks": "DAL",
