@@ -63,7 +63,24 @@ def player():
 # Games route
 @app.route("/games")
 def games():
-    # Add logic for games here (e.g., scrape games data)
+    # Fetch the page
+    page = requests.get("https://sports.yahoo.com/nba/scoreboard/?confId=&dateRange=2025-03-09")
+    soup = BeautifulSoup(page.text, "html.parser")
+
+    # Find all game links
+    games = soup.find_all("a", class_="gamecard-pregame")
+
+    # Extract href attributes
+    game_links = []
+    for game in games:
+        href = game.get("href")  # Get the href attribute
+        if href:
+            full_url = f"https://sports.yahoo.com{href}"  # Construct the full URL
+            game_links.append(full_url)
+
+    # Print all game links
+    for link in game_links:
+        print(link)
     return render_template("games.html")
 
 if __name__ == "__main__":
