@@ -1,5 +1,5 @@
 # NBA_Stats_Scraper
-Tool to retrieve NBA player statitics from the basketball reference website
+Tool to retrieve NBA player statitics from the basketball reference website built using Python.
 
 ## Overview
 This project is a Python-based NBA statistics scraper designed to extract recent player performance data from the Basketball Reference website. It aims to assist in analysing previous plater performances and identifying statistically favourable betting opportunities.
